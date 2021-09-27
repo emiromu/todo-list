@@ -1,8 +1,7 @@
-import {testP} from './project.js';
-import {testT} from './task.js';
+import {createProject} from './project.js';
+import {} from './task.js';
 
 function storageAvailable(type) {
-    console.log("now calling Local Storage function");
     var storage;
     try {
         storage = window[type];
@@ -25,33 +24,85 @@ function storageAvailable(type) {
             // acknowledge QuotaExceededError only if there's something already stored
             (storage && storage.length !== 0);
     }
+};
 
+export function createEngine() {
+
+    let projectList = [];
+    projectList.push(createProject('Default'));
+
+    const getProjectList = () => {
+        return projectList;
+    }
+
+    const addProject = (name) => {
+        for(let i=0; i<projectList.length; i++){
+            if(name==projectList[i].getName()){
+                console.log('Project already exists');
+                return;
+            };
+        }
+        projectList.push(createProject(name));
+        return;
+    }
+
+    const getProject = (name) => {
+        for(let i=0; i<projectList.length; i++){
+            if(name==projectList[i].getName()){
+                return projectList[i];
+            };
+        }
+        console.log('Project not found');
+        return null;
+    }
+
+    const deleteProject = (name) => {
+        for(let i=0; i<projectList.length; i++){
+            if(name==projectList[i].getName()){
+                projectList.splice(i,1);
+                return;
+            };
+        }
+        console.log('Project not found');
+        return;
+    }
     
-}
 
-/*
-loadedTodolist = new()
-
-if (storageAvailable('localStorage')) {
-    if(localStorage.getItem('todolist')!==null){
-        loadedTodolist.setShelf(JSON.parse(localStorage.getItem('todolist')));
-    }else{
-        loadedTodolist=myTodolist;
+    /*** TODO local storage : save/load using constructors */
+    /*
+    const loadProjectList = () => {
+        if (storageAvailable('localStorage')) {
+            if(localStorage.getItem('projectList')!==null){
+                projectList = JSON.parse(localStorage.getItem('projectList'));
+                console.log('Project List loaded');
+                console.log(projectList);
+            }else{
+                alert('No local Todo List found on this device');
+            };
+        }
+        else{
+            alert("No local storage available with this browser");
+        };
     };
-  }
-  else {
-    loadedTodolist=myTodolist;
-  };
-  */
 
+    const saveProjectList = () => {
+        console.log('projectList = ');
+        console.log(projectList);
+        console.log('projectList[0] = ');
+        console.log(projectList[0]);
+        let saved = JSON.stringify(projectList);
+        console.log('saved = ');
+        console.log(saved);
 
-  export function testEngine() {
-    
-    console.log("now calling testEngine() from engine.js");
-    testP();
-    testT();
+        if (storageAvailable('localStorage')) {
+            localStorage.setItem('projectList', JSON.stringify(projectList));
+            console.log('Todo List saved to local storage!');
+            console.log(projectList);
+          }
+          else {
+            alert("No local storage available with this browser");
+          };
+    };*/
 
-    storageAvailable('localStorage');
-
-    return;
-}
+    return {getProjectList,addProject,getProject,deleteProject/*,loadProjectList,saveProjectList*/};
+};
