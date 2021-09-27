@@ -3,6 +3,7 @@ import {testEngine} from './engine.js';
 import {testP} from './project.js';
 import {testT} from './task.js';
 
+testEngine();
 
 function userInterface() {
     const element = document.createElement('div');
