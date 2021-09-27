@@ -478,7 +478,7 @@ module.exports = function (cssWithMappingToString) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "testEngine": () => (/* binding */ testEngine)
+/* harmony export */   "createEngine": () => (/* binding */ createEngine)
 /* harmony export */ });
 /* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
 /* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
@@ -486,7 +486,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function storageAvailable(type) {
-    console.log("now calling Local Storage function");
     var storage;
     try {
         storage = window[type];
@@ -509,36 +508,88 @@ function storageAvailable(type) {
             // acknowledge QuotaExceededError only if there's something already stored
             (storage && storage.length !== 0);
     }
+};
 
+function createEngine() {
+
+    let projectList = [];
+    projectList.push((0,_project_js__WEBPACK_IMPORTED_MODULE_0__.createProject)('Default'));
+
+    const getProjectList = () => {
+        return projectList;
+    }
+
+    const addProject = (name) => {
+        for(let i=0; i<projectList.length; i++){
+            if(name==projectList[i].getName()){
+                console.log('Project already exists');
+                return;
+            };
+        }
+        projectList.push((0,_project_js__WEBPACK_IMPORTED_MODULE_0__.createProject)(name));
+        return;
+    }
+
+    const getProject = (name) => {
+        for(let i=0; i<projectList.length; i++){
+            if(name==projectList[i].getName()){
+                return projectList[i];
+            };
+        }
+        console.log('Project not found');
+        return null;
+    }
+
+    const deleteProject = (name) => {
+        for(let i=0; i<projectList.length; i++){
+            if(name==projectList[i].getName()){
+                projectList.splice(i,1);
+                return;
+            };
+        }
+        console.log('Project not found');
+        return;
+    }
     
-}
 
-/*
-loadedTodolist = new()
-
-if (storageAvailable('localStorage')) {
-    if(localStorage.getItem('todolist')!==null){
-        loadedTodolist.setShelf(JSON.parse(localStorage.getItem('todolist')));
-    }else{
-        loadedTodolist=myTodolist;
+    /*** TODO local storage : save/load using constructors */
+    /*
+    const loadProjectList = () => {
+        if (storageAvailable('localStorage')) {
+            if(localStorage.getItem('projectList')!==null){
+                projectList = JSON.parse(localStorage.getItem('projectList'));
+                console.log('Project List loaded');
+                console.log(projectList);
+            }else{
+                alert('No local Todo List found on this device');
+            };
+        }
+        else{
+            alert("No local storage available with this browser");
+        };
     };
-  }
-  else {
-    loadedTodolist=myTodolist;
-  };
-  */
 
+    const saveProjectList = () => {
+        console.log('projectList = ');
+        console.log(projectList);
+        console.log('projectList[0] = ');
+        console.log(projectList[0]);
+        let saved = JSON.stringify(projectList);
+        console.log('saved = ');
+        console.log(saved);
 
-  function testEngine() {
-    
-    console.log("now calling testEngine() from engine.js");
-    (0,_project_js__WEBPACK_IMPORTED_MODULE_0__.testP)();
-    (0,_task_js__WEBPACK_IMPORTED_MODULE_1__.testT)();
+        if (storageAvailable('localStorage')) {
+            localStorage.setItem('projectList', JSON.stringify(projectList));
+            console.log('Todo List saved to local storage!');
+            console.log(projectList);
+          }
+          else {
+            alert("No local storage available with this browser");
+          };
+    };*/
 
-    storageAvailable('localStorage');
-
-    return;
-}
+    return {getProjectList,addProject,getProject,deleteProject/*,loadProjectList,saveProjectList*/};
+};
 
 /***/ }),
 /* 12 */
@@ -546,11 +597,19 @@ if (storageAvailable('localStorage')) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "testP": () => (/* binding */ testP)
+/* harmony export */   "createProject": () => (/* binding */ createProject)
 /* harmony export */ });
-function testP(){
-    console.log("testP is from Project.js");
-}
+function createProject(name){
+
+    const getName = () => name;
+    const setName = (newName) => {
+        name = newName;
+        return name;
+    };
+    let taskList = [];
+
+    return {getName, setName, taskList}
+};
 
 /***/ }),
 /* 13 */
@@ -558,11 +617,44 @@ function testP(){
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "testT": () => (/* binding */ testT)
+/* harmony export */   "createTask": () => (/* binding */ createTask)
 /* harmony export */ });
-function testT(){
-    console.log("testT() is from Task.js");
-}
+function createTask(name,description,dueDate,priority,status){
+        
+    const getName = () => name;
+    const setName = (newName) => {
+        name = newName;
+        return name;
+    };
+
+    const getDescription = () => description;
+    const setDescription = (newDescription) => {
+        description = newDescription;
+        return description;
+    };
+
+    const getDueDate = () => dueDate;
+    const setDueDate = (newDueDate) => {
+        dueDate = newDueDate;
+        return dueDate;
+    };
+
+    const getPriority = () => priority;
+    const setPriority = (newPriority) => {
+        priority = newPriority;
+        return priority;
+    };
+
+    const getStatus = () => status;
+    const setStatus = (newStatus) => {
+        status = newStatus;
+        return status;
+    };
+
+    return {getName, setName, getDescription, setDescription,
+    getDueDate, setDueDate, getPriority, setPriority,
+    getStatus, setStatus};
+};
 
 /***/ })
 /******/ 	]);
@@ -646,7 +738,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_engine_js__WEBPACK_IMPORTED_MODULE_1__.testEngine)();
+const engine = (0,_engine_js__WEBPACK_IMPORTED_MODULE_1__.createEngine)();
 
 function userInterface() {
     const element = document.createElement('div');
@@ -656,6 +748,52 @@ function userInterface() {
 }
 
 document.body.appendChild(userInterface());
+
+
+const btnA = document.createElement('button');
+btnA.innerHTML="Create Project 1";
+btnA.addEventListener('click',function(e){
+engine.addProject('project 1');
+});
+
+const btnB = document.createElement('button');
+btnB.innerHTML="Create task 1 of project 1";
+btnB.addEventListener('click',function(e){
+engine.getProject('project 1').taskList[0]='this is a task';
+});
+
+const btnC = document.createElement('button');
+btnC.innerHTML="log projectlist";
+btnC.addEventListener('click',function(e){
+console.log(engine.getProjectList());
+});
+
+const btnD = document.createElement('button');
+btnD.innerHTML="Delete Project 1";
+btnD.addEventListener('click',function(e){
+    engine.deleteProject('project 1');
+});
+
+
+document.body.appendChild(btnA);
+document.body.appendChild(btnB);
+document.body.appendChild(btnC);
+document.body.appendChild(btnD);
+
+const btnE = document.createElement('button');
+btnE.innerHTML="stuff";
+btnE.addEventListener('click',function(e){
+console.log("stuff");
+});
+
+const btnF = document.createElement('button');
+btnF.innerHTML="stuff";
+btnF.addEventListener('click',function(e){
+    console.log("stuff");
+});
+
+document.body.appendChild(btnE);
+document.body.appendChild(btnF);
 })();
 
 /******/ })()
