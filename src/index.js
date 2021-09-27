@@ -1,6 +1,9 @@
 import './style.css';
+import {testEngine} from './engine.js';
 
-console.log('Hello');
+testEngine();
+
+
 
 function component() {
     const element = document.createElement('div');
