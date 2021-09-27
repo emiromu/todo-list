@@ -1,3 +1,3 @@
 export function testP(){
-    console.log("Project.js");
+    console.log("testP is from Project.js");
 }

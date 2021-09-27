@@ -2,7 +2,7 @@ import {testP} from './project.js';
 import {testT} from './task.js';
 
 function storageAvailable(type) {
-    console.log("Local Storage function");
+    console.log("now calling Local Storage function");
     var storage;
     try {
         storage = window[type];
@@ -47,7 +47,7 @@ if (storageAvailable('localStorage')) {
 
   export function testEngine() {
     
-    
+    console.log("now calling testEngine() from engine.js");
     testP();
     testT();
 

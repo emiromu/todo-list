@@ -10,7 +10,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "testP": () => (/* binding */ testP)
 /* harmony export */ });
 function testP(){
-    console.log("Project.js");
+    console.log("testP is from Project.js");
 }
 
 /***/ }),
@@ -23,7 +23,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "testT": () => (/* binding */ testT)
 /* harmony export */ });
 function testT(){
-    console.log("Task.js");
+    console.log("testT() is from Task.js");
 }
 
 /***/ })
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function storageAvailable(type) {
-    console.log("Local Storage function");
+    console.log("now calling Local Storage function");
     var storage;
     try {
         storage = window[type];
@@ -142,7 +142,7 @@ if (storageAvailable('localStorage')) {
 
   function testEngine() {
     
-    
+    console.log("now calling testEngine() from engine.js");
     (0,_project_js__WEBPACK_IMPORTED_MODULE_0__.testP)();
     (0,_task_js__WEBPACK_IMPORTED_MODULE_1__.testT)();
 
