@@ -472,6 +472,98 @@ module.exports = function (cssWithMappingToString) {
   return list;
 };
 
+/***/ }),
+/* 11 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "testEngine": () => (/* binding */ testEngine)
+/* harmony export */ });
+/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
+/* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+
+
+
+function storageAvailable(type) {
+    console.log("Local Storage function");
+    var storage;
+    try {
+        storage = window[type];
+        var x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    }
+    catch(e) {
+        return e instanceof DOMException && (
+            // everything except Firefox
+            e.code === 22 ||
+            // Firefox
+            e.code === 1014 ||
+            // test name field too, because code might not be present
+            // everything except Firefox
+            e.name === 'QuotaExceededError' ||
+            // Firefox
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            (storage && storage.length !== 0);
+    }
+
+    
+}
+
+/*
+loadedTodolist = new()
+
+if (storageAvailable('localStorage')) {
+    if(localStorage.getItem('todolist')!==null){
+        loadedTodolist.setShelf(JSON.parse(localStorage.getItem('todolist')));
+    }else{
+        loadedTodolist=myTodolist;
+    };
+  }
+  else {
+    loadedTodolist=myTodolist;
+  };
+  */
+
+
+  function testEngine() {
+    
+    
+    (0,_project_js__WEBPACK_IMPORTED_MODULE_0__.testP)();
+    (0,_task_js__WEBPACK_IMPORTED_MODULE_1__.testT)();
+
+    storageAvailable('localStorage');
+
+    return;
+}
+
+/***/ }),
+/* 12 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "testP": () => (/* binding */ testP)
+/* harmony export */ });
+function testP(){
+    console.log("Project.js");
+}
+
+/***/ }),
+/* 13 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "testT": () => (/* binding */ testT)
+/* harmony export */ });
+function testT(){
+    console.log("Task.js");
+}
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -546,9 +638,13 @@ var __webpack_exports__ = {};
 (() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _engine_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
 
 
-console.log('Hello');
+
+(0,_engine_js__WEBPACK_IMPORTED_MODULE_1__.testEngine)();
+
+
 
 function component() {
     const element = document.createElement('div');
