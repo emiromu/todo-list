@@ -646,6 +646,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+(0,_engine_js__WEBPACK_IMPORTED_MODULE_1__.testEngine)();
 
 function userInterface() {
     const element = document.createElement('div');
