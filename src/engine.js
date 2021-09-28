@@ -1,5 +1,5 @@
 import {createProject} from './project.js';
-import {} from './task.js';
+
 
 function storageAvailable(type) {
     var storage;

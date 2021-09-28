@@ -350,7 +350,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".hello {\n  color: red;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".testing{\n    border-style: dotted;\n    border-width: 0.2em;\n    border-color: magenta;\n}\n\nhtml{\n    height:100%;\n    width:100%;\n}\n\n.body{\n    background-color: #c8d0eb;\n    color: black;\n    min-height: 100%;\n    min-width:100%;\n    height: 100%;\n    width: 100%;\n    margin: 0em;\n    padding: 0em;\n\n    display:flex;\n    flex-direction: column;\n}\n\n.container-vertical{\n    display:flex;\n    justify-content:flex-start;\n    flex-direction: column;\n    align-items: left;\n}\n\n.container-horizontal{\n    display:flex;\n    justify-content: center;\n    justify-self:center;\n\n    flex-direction: row;\n    align-items: center;\n}\n\n.master{\n    height: 100%;\n    width: 100%;\n}\n\n.header{\n/*\n    border-style: solid;\n    border-width: 0.2em;\n    border-bottom-width: 0em;\n    border-color: black;\n  */  \n    width: 100%;\n    height: 10%;\n    min-height:5em;\n    background-color: #7781a3;\n}\n\n.main{\n    display:flex;\n    flex-direction: row;\n    align-items: left;\n    /*\n    border-style: dotted;\n    border-width: 0.2em;\n    border-color: red;\n    */\n    width:100%;\n    height: 90%;\n}\n\n.sidebar{\n    border-style: solid;\n    border-width: 0.2em;\n    border-right-width: 0em;\n    border-left-width: 0em;\n    border-color: black;\n\n    width: 20%;\n    height: 100%;\n    min-width: 10em;\n}\n\n.side-menu-title{\n    text-align: center;\n}\n\n.storage-menu {\n    display: flex;\n    flex-direction: column;\n    align-content: flex-start;\n    justify-content: left;\n\n    /*height:20%;*/\n    flex-shrink: 0;\n}\n\n.projects-menu {\n    display: flex;\n    flex-direction: column;\n    align-content: flex-start;\n    justify-content: left;\n\n    /*height:80%;*/\n    flex-grow: 1;\n}\n\n.projects-table{\n    \n}\n\n.dashboard{\n\n    border-style: solid;\n    border-width: 0.2em;\n    border-right-width: 0em;\n    border-color: black;\n\n    width: 80%;\n    height: 100%;\n    min-width: 30em;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -481,7 +481,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "createEngine": () => (/* binding */ createEngine)
 /* harmony export */ });
 /* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
-/* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
 
 
 
@@ -599,6 +598,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createProject": () => (/* binding */ createProject)
 /* harmony export */ });
+/* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+
+
 function createProject(name){
 
     const getName = () => name;
@@ -608,7 +610,33 @@ function createProject(name){
     };
     let taskList = [];
 
-    return {getName, setName, taskList}
+    const addTask = (taskName,description,dueDate,priority,status) => {
+        for(let i=0;i<taskList.length;i++){
+            if(taskList[i].getName() == taskName){
+                console.log('Task already exists');
+                return;
+            }
+        }
+        taskList.push((0,_task_js__WEBPACK_IMPORTED_MODULE_0__.createTask)(taskName,description,dueDate,priority,status));
+        console.log(`Task ${taskName} has been pushed to project ${getName()}`);
+        return;
+        };
+
+    const deleteTask = (taskName) => {
+        
+        for(let i=0;i<taskList.length;i++){
+            if(taskList[i].getName() == taskName){
+                taskList.splice(i,1);
+                console.log('Task deleted');
+                return;
+            }
+        }
+        console.log(`Task not found`);
+        return;
+        };
+        
+
+    return {getName, setName, taskList, addTask, deleteTask}
 };
 
 /***/ }),
@@ -740,16 +768,153 @@ __webpack_require__.r(__webpack_exports__);
 
 const engine = (0,_engine_js__WEBPACK_IMPORTED_MODULE_1__.createEngine)();
 
-function userInterface() {
-    const element = document.createElement('div');
-    element.innerHTML = 'Hello';
-    element.classList.add('hello');
-    return element;
-}
+String.prototype.hashCode = function() {
+    var hash = 0, i, chr;
+    if (this.length === 0) return hash;
+    for (i = 0; i < this.length; i++) {
+      chr   = this.charCodeAt(i);
+      hash  = ((hash << 5) - hash) + chr;
+      hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
+  };
 
+function componentHeader(){
+    const header = document.createElement('div');
+    header.setAttribute("id", "header");
+    header.classList.add('container-horizontal','header');
+
+    return header;
+};
+
+function componentMainPannel(){
+    const mainPannel = document.createElement('div');
+    mainPannel.setAttribute("id", "mainPannel");
+    mainPannel.classList.add('main');
+
+    return mainPannel;
+};
+
+function componentStorageMenu(){
+
+    /**Local Storage */
+    const storageMenu = document.createElement('div');
+    storageMenu.setAttribute('id','storageMenu');
+    storageMenu.classList.add('storage-menu','testing');
+
+    const storageMenuTitle = document.createElement('div');
+    storageMenuTitle.setAttribute('id','storageMenuTitle');
+    storageMenuTitle.classList.add('side-menu-title');
+    storageMenuTitle.innerHTML='Local Storage';
+
+    const saveBtn = document.createElement('button');
+    saveBtn.setAttribute('id','saveBtn');
+    saveBtn.innerHTML='Save';
+    saveBtn.addEventListener('click',function(e){
+        alert('Save call');
+    });
+
+    const loadBtn = document.createElement('button');
+    loadBtn.setAttribute('id','loadBtn');
+    loadBtn.innerHTML='Load';
+    loadBtn.addEventListener('click',function(e){
+        alert('Load call');
+    });
+
+    storageMenu.appendChild(storageMenuTitle);
+    storageMenu.appendChild(saveBtn);
+    storageMenu.appendChild(loadBtn);
+
+    return storageMenu;
+};
+
+function componentProjectCell(projectName){
+    const projectCell = document.createElement('div');
+    projectCell.setAttribute('id','projectCell'+projectName.hashCode());
+    projectCell.innerHTML=`${projectName}`;
+
+    return projectCell;
+};
+
+function componentProjectsMenu(){
+    /**Menu containing New Project button and Projects table div */
+    const projectsMenu = document.createElement('div');
+    projectsMenu.setAttribute('id','projectsMenu');
+    projectsMenu.classList.add('projects-menu','testing');
+
+    const projectsMenuTitle = document.createElement('div');
+    projectsMenuTitle.setAttribute('id','projectsMenuTitle');
+    projectsMenuTitle.classList.add('side-menu-title');
+    projectsMenuTitle.innerHTML='Projects';
+    
+    const newProjectBtn = document.createElement('button');
+    newProjectBtn.setAttribute('id','newProjectBtn');
+    newProjectBtn.innerHTML=`New Project`;
+    newProjectBtn.addEventListener('click',function(e){
+        alert('New Project call');
+        //Refresh the Projects Menu
+        document.querySelector('#projectsMenu').remove();
+        document.querySelector('#sidebar').appendChild(componentProjectsMenu());
+    });
+
+    projectsMenu.appendChild(projectsMenuTitle);
+    projectsMenu.appendChild(newProjectBtn);
+
+    /*Projects table div containing Project cells*/
+    const projectsTable = document.createElement('div');
+    projectsTable.setAttribute('id','projectsTable');
+    projectsTable.classList.add('projects-table');
+
+    let projectSelection = [];
+    for(let i=0; i<engine.getProjectList().length;i++){
+        projectSelection[i]=document.createElement('div');
+        projectSelection[i].innerHTML=`${engine.getProjectList()[i].getName()}`;
+        projectsTable.appendChild(componentProjectCell(engine.getProjectList()[i].getName()));
+    }
+    projectsMenu.appendChild(projectsTable);
+    return projectsMenu;
+};
+
+function componentSidebar(){
+    const sidebar = document.createElement('div');
+    sidebar.setAttribute('id','sidebar');
+    sidebar.classList.add('container-vertical','sidebar')
+    
+    sidebar.appendChild(componentStorageMenu());
+    sidebar.appendChild(componentProjectsMenu());
+    return sidebar;
+};
+
+function componentDashboard(){
+    const dashboard = document.createElement('div');
+    dashboard.setAttribute("id", "dashboard");
+    dashboard.classList.add('container-vertical','dashboard');
+
+    return dashboard;
+};
+
+function userInterface() {
+
+    const userInterface = document.createElement('div');
+    userInterface.setAttribute('id','master');
+    userInterface.classList.add('master');
+    
+    userInterface.appendChild(componentHeader());
+    const main = userInterface.appendChild(componentMainPannel());
+    main.appendChild(componentSidebar());
+    main.appendChild(componentDashboard());
+
+
+
+    return userInterface;
+};
+
+document.body.classList.add('body');
 document.body.appendChild(userInterface());
 
 
+
+/*** TMP TESTING */
 const btnA = document.createElement('button');
 btnA.innerHTML="Create Project 1";
 btnA.addEventListener('click',function(e){
@@ -759,7 +924,7 @@ engine.addProject('project 1');
 const btnB = document.createElement('button');
 btnB.innerHTML="Create task 1 of project 1";
 btnB.addEventListener('click',function(e){
-engine.getProject('project 1').taskList[0]='this is a task';
+engine.getProject('project 1').addTask('this is a task');
 });
 
 const btnC = document.createElement('button');
@@ -774,16 +939,10 @@ btnD.addEventListener('click',function(e){
     engine.deleteProject('project 1');
 });
 
-
-document.body.appendChild(btnA);
-document.body.appendChild(btnB);
-document.body.appendChild(btnC);
-document.body.appendChild(btnD);
-
 const btnE = document.createElement('button');
-btnE.innerHTML="stuff";
+btnE.innerHTML="delete task this is a task of project 1";
 btnE.addEventListener('click',function(e){
-console.log("stuff");
+engine.getProject('project 1').deleteTask('this is a task');
 });
 
 const btnF = document.createElement('button');
@@ -792,8 +951,15 @@ btnF.addEventListener('click',function(e){
     console.log("stuff");
 });
 
+/*
+document.body.appendChild(btnA);
+document.body.appendChild(btnB);
+document.body.appendChild(btnC);
+document.body.appendChild(btnD);
+
 document.body.appendChild(btnE);
 document.body.appendChild(btnF);
+*/
 })();
 
 /******/ })()
