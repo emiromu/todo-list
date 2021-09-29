@@ -36,9 +36,15 @@ export function createEngine() {
     }
 
     const addProject = (name) => {
+        if ((typeof name !== 'string' || !(name instanceof String)) && (name.length<1 || name.length>30)){
+            alert('Project name not valid (must be 1 to 30 characters)');
+            return;
+        };
+
         for(let i=0; i<projectList.length; i++){
             if(name==projectList[i].getName()){
-                console.log('Project already exists');
+                //console.log('Project already exists');
+                alert('A project with the same name already exists');
                 return;
             };
         }
@@ -47,6 +53,10 @@ export function createEngine() {
     }
 
     const getProject = (name) => {
+        if ((typeof name !== 'string' || !(name instanceof String)) && (name.length<1 || name.length>30)){
+            return;
+        };
+        
         for(let i=0; i<projectList.length; i++){
             if(name==projectList[i].getName()){
                 return projectList[i];
@@ -66,6 +76,25 @@ export function createEngine() {
         console.log('Project not found');
         return;
     }
+
+    const renameProject = (name, newName) => {
+        if ((typeof newName !== 'string' || !(newName instanceof String)) && (newName.length<1 || newName.length>30)){
+            alert('Project name not valid (must be 1 to 30 characters)');
+            return;
+        };
+        for(let i=0; i<projectList.length; i++){
+            if(newName==projectList[i].getName()){
+                alert('A project with that name already exists');
+                return;
+            };
+        }
+        for(let i=0; i<projectList.length; i++){
+            if(name==projectList[i].getName()){
+                projectList[i].setName(newName);
+                return;
+            };
+        }
+    };
     
 
     /*** TODO local storage : save/load using constructors */
@@ -104,5 +133,5 @@ export function createEngine() {
           };
     };*/
 
-    return {getProjectList,addProject,getProject,deleteProject/*,loadProjectList,saveProjectList*/};
+    return {getProjectList,addProject,getProject,renameProject,deleteProject/*,loadProjectList,saveProjectList*/};
 };

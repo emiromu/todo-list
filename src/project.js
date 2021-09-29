@@ -2,6 +2,11 @@ import {createTask} from './task.js';
 
 export function createProject(name){
 
+    if ((typeof name !== 'string' || !(name instanceof String)) && (name.length<1 || name.length>30)){
+        alert('Project name not valid (must be 1 to 30 characters)');
+        return;
+    };
+
     const getName = () => name;
     const setName = (newName) => {
         name = newName;
@@ -9,7 +14,15 @@ export function createProject(name){
     };
     let taskList = [];
 
+    const getTaskList = () => {
+        return taskList;
+    };
+
     const addTask = (taskName,description,dueDate,priority,status) => {
+        if ((typeof taskName !== 'string' || !(taskName instanceof String)) && (taskName.length<1 || taskName.length>50)){
+            alert('Task name not valid (must be 1 to 50 characters)');
+            return;
+        };
         for(let i=0;i<taskList.length;i++){
             if(taskList[i].getName() == taskName){
                 console.log('Task already exists');
@@ -35,5 +48,5 @@ export function createProject(name){
         };
         
 
-    return {getName, setName, taskList, addTask, deleteTask}
+    return {getName, setName, getTaskList, addTask, deleteTask}
 };

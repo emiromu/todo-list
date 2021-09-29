@@ -21,6 +21,7 @@ html{
 
     display:flex;
     flex-direction: column;
+    flex-grow: 5;
 }
 
 .container-vertical{
@@ -40,50 +41,63 @@ html{
 }
 
 .master{
-    height: 100%;
-    width: 100%;
+    display: flex;
+    height: auto;
+    width: auto;
+    flex-direction: column;
+    flex-grow: 3;
 }
 
 .header{
-/*
-    border-style: solid;
-    border-width: 0.2em;
-    border-bottom-width: 0em;
-    border-color: black;
-  */  
     width: 100%;
     height: 10%;
     min-height:5em;
     background-color: #7781a3;
 }
 
+.footer{
+    height: 1.2em;
+    background-color: #7781a3;
+    margin: 0em;
+    padding: 0em;
+    font-size: 0.8rem;
+    }
+
 .main{
     display:flex;
     flex-direction: row;
     align-items: left;
-    /*
-    border-style: dotted;
-    border-width: 0.2em;
-    border-color: red;
-    */
-    width:100%;
-    height: 90%;
+    width: auto;
+    height: auto;
+    min-height: 80%;
+
 }
 
 .sidebar{
+    display: flex;
+
     border-style: solid;
     border-width: 0.2em;
     border-right-width: 0em;
     border-left-width: 0em;
+    border-top-width: 0em;
     border-color: black;
 
-    width: 20%;
-    height: 100%;
+    width: 22%;
+    min-height: auto;
     min-width: 10em;
+    flex-grow: 1;
 }
 
 .side-menu-title{
     text-align: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 0em;
+    border-bottom-width: 0.2em;
+    border-top-width: 0.2em;
+    background-color: #748bd1;
+    margin-bottom:0.5em;
 }
 
 .storage-menu {
@@ -92,8 +106,9 @@ html{
     align-content: flex-start;
     justify-content: left;
 
-    /*height:20%;*/
+    font-weight: bold;
     flex-shrink: 0;
+    padding-bottom:0.5em;
 }
 
 .projects-menu {
@@ -102,24 +117,86 @@ html{
     align-content: flex-start;
     justify-content: left;
 
-    /*height:80%;*/
+    font-weight: bold;
     flex-grow: 1;
 }
 
 .projects-table{
-    
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
+}
+
+.project-cell{
+    display: flex;
+    word-wrap: break-word;
+    justify-content: center;
+}
+
+.project-select{
+    font-weight: normal;
+}
+
+.project-select:hover{
+    color: midnightblue;
+    text-decoration: underline;
+}
+
+.project-cell-button{
+    border-radius: 2em;
 }
 
 .dashboard{
+    display: flex;
+    flex-direction: column;
 
     border-style: solid;
     border-width: 0.2em;
     border-right-width: 0em;
     border-color: black;
 
-    width: 80%;
-    height: 100%;
+    width: 78%;
+    min-height: auto;
     min-width: 30em;
+
+    flex-grow: 1;
 }
 
 
+
+.dashboard-title{
+    min-height: auto;
+    min-width: auto;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.tasks-menu{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    min-height: auto;
+    min-width: auto;
+}
+
+
+.tasks-menu-title{
+    min-height: auto;
+    min-width: auto;
+    font-weight: bold;
+    text-align: center;
+}
+
+.tasks-table{
+
+}
+
+.task-cell{
+
+}
+
+.task-title{
+
+}
