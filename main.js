@@ -350,7 +350,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".testing{\n    border-style: dotted;\n    border-width: 0.2em;\n    border-color: magenta;\n}\n\nhtml{\n    height:100%;\n    width:100%;\n}\n\n.body{\n    background-color: #c8d0eb;\n    color: black;\n    min-height: 100%;\n    min-width:100%;\n    height: 100%;\n    width: 100%;\n    margin: 0em;\n    padding: 0em;\n\n    display:flex;\n    flex-direction: column;\n    flex-grow: 5;\n}\n\n.container-vertical{\n    display:flex;\n    justify-content:flex-start;\n    flex-direction: column;\n    align-items: left;\n}\n\n.container-horizontal{\n    display:flex;\n    justify-content: center;\n    justify-self:center;\n\n    flex-direction: row;\n    align-items: center;\n}\n\n.master{\n    display: flex;\n    height: auto;\n    width: auto;\n    flex-direction: column;\n    flex-grow: 3;\n}\n\n.header{\n    width: 100%;\n    height: 10%;\n    min-height:5em;\n    background-color: #7781a3;\n}\n\n.footer{\n    height: 1.2em;\n    background-color: #7781a3;\n    margin: 0em;\n    padding: 0em;\n    font-size: 0.8rem;\n    }\n\n.main{\n    display:flex;\n    flex-direction: row;\n    align-items: left;\n    width: auto;\n    height: auto;\n    min-height: 80%;\n\n}\n\n.sidebar{\n    display: flex;\n\n    border-style: solid;\n    border-width: 0.2em;\n    border-right-width: 0em;\n    border-left-width: 0em;\n    border-top-width: 0em;\n    border-color: black;\n\n    width: 22%;\n    min-height: auto;\n    min-width: 10em;\n    flex-grow: 1;\n}\n\n.side-menu-title{\n    text-align: center;\n    border-style: solid;\n    border-color: black;\n    border-width: 0em;\n    border-bottom-width: 0.2em;\n    border-top-width: 0.2em;\n    background-color: #748bd1;\n    margin-bottom:0.5em;\n}\n\n.storage-menu {\n    display: flex;\n    flex-direction: column;\n    align-content: flex-start;\n    justify-content: left;\n\n    font-weight: bold;\n    flex-shrink: 0;\n    padding-bottom:0.5em;\n}\n\n.projects-menu {\n    display: flex;\n    flex-direction: column;\n    align-content: flex-start;\n    justify-content: left;\n\n    font-weight: bold;\n    flex-grow: 1;\n}\n\n.projects-table{\n    display: flex;\n    flex-direction: column;\n    align-content: flex-start;\n    justify-content: center;\n}\n\n.project-cell{\n    display: flex;\n    word-wrap: break-word;\n    justify-content: center;\n}\n\n.project-select{\n    font-weight: normal;\n}\n\n.project-select:hover{\n    color: midnightblue;\n    text-decoration: underline;\n}\n\n.project-cell-button{\n    border-radius: 2em;\n}\n\n.dashboard{\n    display: flex;\n    flex-direction: column;\n\n    border-style: solid;\n    border-width: 0.2em;\n    border-right-width: 0em;\n    border-color: black;\n\n    width: 78%;\n    min-height: auto;\n    min-width: 30em;\n\n    flex-grow: 1;\n}\n\n\n\n.dashboard-title{\n    min-height: auto;\n    min-width: auto;\n    font-weight: bolder;\n    text-align: center;\n}\n\n.tasks-menu{\n    display: flex;\n    flex-direction: column;\n    flex-grow: 1;\n\n    min-height: auto;\n    min-width: auto;\n}\n\n\n.tasks-menu-title{\n    min-height: auto;\n    min-width: auto;\n    font-weight: bold;\n    text-align: center;\n}\n\n.tasks-table{\n\n}\n\n.task-cell{\n\n}\n\n.task-title{\n\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".testing{\n    border-style: dotted;\n    border-width: 0.2em;\n    border-color: magenta;\n}\n\nhtml{\n    height:100%;\n    width:100%;\n    margin: 0em;\n    padding: 0em;\n}\n\n.body{\n    background-color: #c8d0eb;\n    color: black;\n    min-height: 100%;\n    height: 100%;\n    width: 100%;\n    margin: 0em;\n    padding: 0em;\n\n    display:flex;\n    flex-direction: column;\n    flex-grow: 1;\n}\n\n.container-vertical{\n    display:flex;\n    justify-content:flex-start;\n    flex-direction: column;\n    align-items: left;\n}\n\n.container-horizontal{\n    display:flex;\n    justify-content: center;\n    justify-self:center;\n\n    flex-direction: row;\n    align-items: center;\n}\n\n.master{\n    display: flex;\n    flex-direction: column;\n    flex-grow: 4;\n    min-width: 22em;\n}\n\n.header{\n    width: 100%;\n    height:5em;\n    background-color: #7781a3;\n}\n\n.footer{\n    height: 1.2em;\n    background-color: #7781a3;\n    margin: 0em;\n    padding: 0em;\n    font-size: 0.8rem;\n    }\n\n.main{\n    display:flex;\n    flex-direction: row;\n    align-items: left;\n    width: 100%;\n    min-width: 22em;\n\n    flex-grow: 1;\n}\n\n.sidebar{\n    display: flex;\n\n    border-style: solid;\n    border-width: 0.2em;\n    border-right-width: 0em;\n    border-left-width: 0em;\n    border-top-width: 0em;\n    border-color: black;\n\n    width: 15%;\n    min-height: auto;\n    min-width: 10em;\n    flex-grow:1;\n}\n\n.sidebar-button{\n    width: 75%;\n    border-radius: 2em;\n}\n\n.side-menu-title{\n    text-align: center;\n    border-style: solid;\n    border-color: black;\n    border-width: 0em;\n    border-bottom-width: 0.2em;\n    border-top-width: 0.2em;\n    background-color: #748bd1;\n    margin-bottom:0.5em;\n}\n\n.side-buttons-box{\n    display: flex;\n    justify-content: center;\n    align-content: center;\n}\n\n.storage-menu {\n    display: flex;\n    flex-direction: column;\n    align-content: flex-start;\n    justify-content: left;\n\n    font-weight: bold;\n    flex-shrink: 0;\n    padding-bottom:0.5em;\n}\n\n.projects-menu {\n    display: flex;\n    flex-direction: column;\n    align-content: flex-start;\n    justify-content: left;\n\n    font-weight: bold;\n    flex-grow: 1;\n}\n\n.projects-table{\n    display: flex;\n    flex-direction: column;\n    align-content: flex-start;\n    justify-content: center;\n    margin-top: 0.5em;\n}\n\n.project-cell{\n    display: flex;\n    justify-content: center;\n}\n\n.project-select{\n    display:flex;\n    font-weight: normal;\n    word-wrap:break-word;\n    overflow-wrap: break-word;\n    word-break: break-all;\n}\n\n.project-select:hover{\n    color: midnightblue;\n    text-decoration: underline;\n    cursor: pointer;\n}\n\n.dashboard{\n    display: flex;\n    flex-direction: column;\n\n    border-style: solid;\n    border-width: 0.2em;\n    border-right-width: 0em;\n    border-color: black;\n\n    width: 85%;\n    min-height: auto;\n    min-width: 8em;\n\n    flex-grow: 1;\n}\n\n.dashboard-title{\n    min-height: auto;\n    /*min-width: auto;*/\n    font-weight:bolder;\n    font-size: 2rem;\n    text-align: center;\n\n    word-wrap:break-word;\n\n    margin:0em;\n    width: 60%;\n}\n\n#dashboardTop{\n    height: 4.5em;\n    flex-grow: 0;\n}\n\n.dashboard-top-left{\n    float:left;\n    width: 20%;\n    max-width: 8em;\n    height: auto;\n}\n\n.dashboard-top-right{\n    float:right;\n    width: 20%;\n    max-width: 8em;\n    height: auto;\n}\n\n.project-button{\n    border-radius: 2em;\n    min-width:4.5em;\n    width:auto;\n    height:auto;\n}\n\n.tasks-menu{\n    flex-grow: 1;\n    justify-content: center;\n    justify-items: center;\n    min-height: 80%;\n    min-width: 100%;\n}\n\n.tasks-menu-title{\n    height:8%;\n    width:99.5%;\n    font-weight: bold;\n    text-align: center;\n\n    border-style: solid;\n    border-width: 0.1em;\n    border-color: black;\n    border-radius: 0.5em;\n}\n\n.tasks-menu-button{\n    border-radius: 2em;\n    width:8em;\n    height:1.5em;\n    margin:0.5em;\n}\n\n.tasks-bench{\n    min-height:auto;\n    flex-grow: 1;\n\n    border-style: solid;\n    border-width: 0.1em;\n    border-color: black;\n    border-radius: 0.5em;\n}\n\n.tasks-table{\n    display: flex;\n    flex-direction:column;\n    flex-grow: 2;\n}\n\n.task-cell{\n    border-style: dotted;\n    border-width: 0.2em;\n    border-color: yellow;\n    border-radius: 2em;\n\n}\n\n.task-title{\n\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -519,8 +519,8 @@ function createEngine() {
     }
 
     const addProject = (name) => {
-        if ((typeof name !== 'string' || !(name instanceof String)) && (name.length<1 || name.length>30)){
-            alert('Project name not valid (must be 1 to 30 characters)');
+        if ((typeof name !== 'string' || !(name instanceof String)) && (name.length<1 || name.length>22)){
+            alert('Project name not valid (must be 1 to 22 characters)');
             return;
         };
 
@@ -561,8 +561,8 @@ function createEngine() {
     }
 
     const renameProject = (name, newName) => {
-        if ((typeof newName !== 'string' || !(newName instanceof String)) && (newName.length<1 || newName.length>30)){
-            alert('Project name not valid (must be 1 to 30 characters)');
+        if ((typeof newName !== 'string' || !(newName instanceof String)) && (newName.length<1 || newName.length>22)){
+            alert('Project name not valid (must be 1 to 22 characters)');
             return;
         };
         for(let i=0; i<projectList.length; i++){
@@ -632,8 +632,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function createProject(name){
 
-    if ((typeof name !== 'string' || !(name instanceof String)) && (name.length<1 || name.length>30)){
-        alert('Project name not valid (must be 1 to 30 characters)');
+    if ((typeof name !== 'string' || !(name instanceof String)) && (name.length<1 || name.length>22)){
+        alert('Project name not valid (must be 1 to 22 characters)');
         return;
     };
 
@@ -869,8 +869,13 @@ function componentStorageMenu(){
     storageMenuTitle.classList.add('side-menu-title');
     storageMenuTitle.innerHTML='Local Storage';
 
+    const storageMenuButtons = document.createElement('div');
+    storageMenuButtons.setAttribute('id','storageMenuButtons');
+    storageMenuButtons.classList.add('side-buttons-box');
+
     const saveBtn = document.createElement('button');
     saveBtn.setAttribute('id','saveBtn');
+    saveBtn.classList.add('sidebar-button');
     saveBtn.innerHTML='Save';
     saveBtn.addEventListener('click',function(e){
         if(confirm(`        Save to local storage?
@@ -881,6 +886,7 @@ function componentStorageMenu(){
 
     const loadBtn = document.createElement('button');
     loadBtn.setAttribute('id','loadBtn');
+    loadBtn.classList.add('sidebar-button');
     loadBtn.innerHTML='Load';
     loadBtn.addEventListener('click',function(e){
         if(confirm(`        Load local storage?
@@ -889,9 +895,11 @@ function componentStorageMenu(){
         };
     });
 
+    
     storageMenu.appendChild(storageMenuTitle);
-    storageMenu.appendChild(saveBtn);
-    storageMenu.appendChild(loadBtn);
+    storageMenuButtons.appendChild(saveBtn);
+    storageMenuButtons.appendChild(loadBtn);
+    storageMenu.appendChild(storageMenuButtons);
 
     return storageMenu;
 };
@@ -910,56 +918,7 @@ function componentProjectCell(projectName){
         document.querySelector('#mainPannel').appendChild(componentDashboard(projectName));
     });
     
-    /**TODO ; NOTE : probably will replace these with interface in dashboard */
-    const editProject = document.createElement('button');
-    editProject.setAttribute('id',`edit${projectName}`);
-    editProject.classList.add('project-cell-button');
-    editProject.innerHTML=`Edit`;
-    editProject.addEventListener('click',function(e){
-        var newProjectName = window.prompt('Enter new name for the project','');
-        engine.renameProject(projectName,newProjectName);
-        if ((typeof newProjectName !== 'string' || !(newProjectName instanceof String)) && (newProjectName.length<1 || newProjectName.length>30)){
-            return;
-        };
-        //Refresh the Projects Menu
-        document.querySelector('#projectsMenu').remove();
-        document.querySelector('#sidebar').appendChild(componentProjectsMenu());
-        //Refresh the Dashboard
-        document.querySelector(`#dashboard`).remove();
-        document.querySelector('#mainPannel').appendChild(componentDashboard(newProjectName));
-        return;
-    });
-
-    const deleteProject = document.createElement('button');
-    deleteProject.setAttribute('id',`delete${projectName}`);
-    deleteProject.classList.add('project-cell-button');
-    deleteProject.innerHTML=`Delete`;
-    deleteProject.addEventListener('click',function(e){
-        if(confirm(`Delete project "${projectName}" ?`)){
-            engine.deleteProject(projectName);
-
-            //Refresh the Projects Menu
-            document.querySelector('#projectsMenu').remove();
-            document.querySelector('#sidebar').appendChild(componentProjectsMenu());
-
-            if(engine.getProjectList().length<1){
-                //Refresh the Dashboard (no projects left)
-                document.querySelector(`#dashboard`).remove();
-                document.querySelector('#mainPannel').appendChild(componentDashboardEmpty());
-            }
-            else{
-                //Refresh the Dashboard (use first project)
-                document.querySelector(`#dashboard`).remove();
-                document.querySelector('#mainPannel').appendChild(componentDashboard(engine.getProjectList()[0].getName()));
-            };
-            return;
-        };
-    });
-
-
     projectCell.appendChild(projectSelect);
-    projectCell.appendChild(editProject);
-    projectCell.appendChild(deleteProject);
 
     return projectCell;
 };
@@ -975,14 +934,19 @@ function componentProjectsMenu(){
     projectsMenuTitle.setAttribute('id','projectsMenuTitle');
     projectsMenuTitle.classList.add('side-menu-title');
     projectsMenuTitle.innerHTML='Projects';
+
+    const projectsMenuButtons = document.createElement('div');
+    projectsMenuButtons.setAttribute('id','projectsMenuButtons');
+    projectsMenuButtons.classList.add('side-buttons-box');
     
     const newProjectBtn = document.createElement('button');
     newProjectBtn.setAttribute('id','newProjectBtn');
+    newProjectBtn.classList.add('sidebar-button');
     newProjectBtn.innerHTML=`New Project`;
     newProjectBtn.addEventListener('click',function(e){
         let newProjectName=window.prompt('Enter new project name','');
         engine.addProject(newProjectName);
-        if ((typeof newProjectName !== 'string' || !(newProjectName instanceof String)) && (newProjectName.length<1 || newProjectName.length>30)){
+        if ((typeof newProjectName !== 'string' || !(newProjectName instanceof String)) && (newProjectName.length<1 || newProjectName.length>22)){
             return;
         };
         //Refresh the Projects Menu
@@ -995,7 +959,8 @@ function componentProjectsMenu(){
     });
 
     projectsMenu.appendChild(projectsMenuTitle);
-    projectsMenu.appendChild(newProjectBtn);
+    projectsMenuButtons.appendChild(newProjectBtn);
+    projectsMenu.appendChild(projectsMenuButtons);
 
     /*Projects table div containing Project cells*/
     const projectsTable = document.createElement('div');
@@ -1042,7 +1007,7 @@ function componentTasksMenu(projectName){
     /**Menu containing tasks of the active project */
     const tasksMenu = document.createElement('div');
     tasksMenu.setAttribute('id','tasksMenu');
-    tasksMenu.classList.add('tasks-menu');
+    tasksMenu.classList.add('container-vertical','tasks-menu');
 
     const tasksMenuTitle = document.createElement('div');
     tasksMenuTitle.setAttribute('id','tasksMenuTitle');
@@ -1053,6 +1018,7 @@ function componentTasksMenu(projectName){
 
     const newTaskBtn = document.createElement('button');
     newTaskBtn.setAttribute('id','newTaskBtn');
+    newTaskBtn.classList.add('tasks-menu-button');
     newTaskBtn.innerHTML=`New Task`;
     newTaskBtn.addEventListener('click',function(e){
         engine.getProject(projectName).addTask(window.prompt('Enter new task name',''),'','','','');
@@ -1061,12 +1027,17 @@ function componentTasksMenu(projectName){
         document.querySelector('#mainPannel').appendChild(componentDashboard(projectName));
     });
 
-    tasksMenu.appendChild(newTaskBtn);
+    const tasksBench = document.createElement('div');
+    tasksBench.setAttribute('id','tasksBench');
+    tasksBench.classList.add('container-vertical','tasks-bench');
 
     /*tasks table div containing tasks cells*/
     const tasksTable = document.createElement('div');
     tasksTable.setAttribute('id','tasksTable');
     tasksTable.classList.add('tasks-table');
+
+    tasksBench.appendChild(newTaskBtn);
+    tasksBench.appendChild(tasksTable);
 
     let taskSelection = [];
     for(let i=0; i<engine.getProject(projectName).getTaskList().length;i++){
@@ -1074,7 +1045,7 @@ function componentTasksMenu(projectName){
         taskSelection[i].innerHTML=`${engine.getProject(projectName).getTaskList()[i].getName()}`;
         tasksTable.appendChild(componentTaskCell(projectName,engine.getProject(projectName).getTaskList()[i].getName()));
     }
-    tasksMenu.appendChild(tasksTable);
+    tasksMenu.appendChild(tasksBench);
     return tasksMenu;
 };
 
@@ -1113,12 +1084,76 @@ function componentDashboard(activeSelection){
     dashboard.setAttribute("id", "dashboard");
     dashboard.classList.add('container-vertical','dashboard');
 
+    const dashboardTop = document.createElement('div');
+    dashboardTop.setAttribute('id','dashboardTop');
+    dashboardTop.classList.add('container-horizontal');
+
     const dashboardTitle = document.createElement('div');
     dashboardTitle.setAttribute("id", "dashboardTitle");
     dashboardTitle.classList.add('container-vertical','dashboard-title');
     dashboardTitle.innerHTML=`<br>${renderSelection}<br><br>`;
 
-    dashboard.appendChild(dashboardTitle);
+    const dashboardTopRight = document.createElement('div');
+    dashboardTopRight.setAttribute('id','dashboardTopRight');
+    dashboardTopRight.classList.add('container-vertical','dashboard-top-right');
+
+    const dashboardTopLeft = document.createElement('div');
+    dashboardTopLeft.setAttribute('id','dashboardTopLeft');
+    dashboardTopLeft.classList.add('container-vertical','dashboard-top-left');
+
+    const editProject = document.createElement('button');
+    editProject.setAttribute('id',`edit${renderSelection}`);
+    editProject.classList.add('project-button');
+    editProject.innerHTML=`Rename`;
+    editProject.addEventListener('click',function(e){
+        var newProjectName = window.prompt('Enter new name for the project','');
+        engine.renameProject(renderSelection,newProjectName);
+        if ((typeof newProjectName !== 'string' || !(newProjectName instanceof String)) && (newProjectName.length<1 || newProjectName.length>22)){
+            return;
+        };
+        //Refresh the Projects Menu
+        document.querySelector('#projectsMenu').remove();
+        document.querySelector('#sidebar').appendChild(componentProjectsMenu());
+        //Refresh the Dashboard
+        document.querySelector(`#dashboard`).remove();
+        document.querySelector('#mainPannel').appendChild(componentDashboard(newProjectName));
+        return;
+    });
+
+    const deleteProject = document.createElement('button');
+    deleteProject.setAttribute('id',`delete${renderSelection}`);
+    deleteProject.classList.add('project-button');
+    deleteProject.innerHTML=`Delete`;
+    deleteProject.addEventListener('click',function(e){
+        if(confirm(`Delete project "${renderSelection}" ?`)){
+            engine.deleteProject(renderSelection);
+
+            //Refresh the Projects Menu
+            document.querySelector('#projectsMenu').remove();
+            document.querySelector('#sidebar').appendChild(componentProjectsMenu());
+
+            if(engine.getProjectList().length<1){
+                //Refresh the Dashboard (no projects left)
+                document.querySelector(`#dashboard`).remove();
+                document.querySelector('#mainPannel').appendChild(componentDashboardEmpty());
+            }
+            else{
+                //Refresh the Dashboard (use first project)
+                document.querySelector(`#dashboard`).remove();
+                document.querySelector('#mainPannel').appendChild(componentDashboard(engine.getProjectList()[0].getName()));
+            };
+            return;
+        };
+    });
+
+    dashboardTop.appendChild(dashboardTopLeft);
+    dashboardTop.appendChild(dashboardTitle);
+    dashboardTopLeft.appendChild(editProject);
+    dashboardTopRight.appendChild(deleteProject);
+    dashboardTop.appendChild(dashboardTopRight);
+    
+
+    dashboard.appendChild(dashboardTop);
     dashboard.appendChild(componentTasksMenu(renderSelection));
     return dashboard;
 };
