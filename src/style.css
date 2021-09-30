@@ -7,13 +7,14 @@
 html{
     height:100%;
     width:100%;
+    margin: 0em;
+    padding: 0em;
 }
 
 .body{
     background-color: #c8d0eb;
     color: black;
     min-height: 100%;
-    min-width:100%;
     height: 100%;
     width: 100%;
     margin: 0em;
@@ -21,7 +22,7 @@ html{
 
     display:flex;
     flex-direction: column;
-    flex-grow: 5;
+    flex-grow: 1;
 }
 
 .container-vertical{
@@ -42,16 +43,14 @@ html{
 
 .master{
     display: flex;
-    height: auto;
-    width: auto;
     flex-direction: column;
-    flex-grow: 3;
+    flex-grow: 4;
+    min-width: 22em;
 }
 
 .header{
     width: 100%;
-    height: 10%;
-    min-height:5em;
+    height:5em;
     background-color: #7781a3;
 }
 
@@ -67,10 +66,10 @@ html{
     display:flex;
     flex-direction: row;
     align-items: left;
-    width: auto;
-    height: auto;
-    min-height: 80%;
+    width: 100%;
+    min-width: 22em;
 
+    flex-grow: 1;
 }
 
 .sidebar{
@@ -83,10 +82,15 @@ html{
     border-top-width: 0em;
     border-color: black;
 
-    width: 22%;
+    width: 15%;
     min-height: auto;
     min-width: 10em;
-    flex-grow: 1;
+    flex-grow:1;
+}
+
+.sidebar-button{
+    width: 75%;
+    border-radius: 2em;
 }
 
 .side-menu-title{
@@ -98,6 +102,12 @@ html{
     border-top-width: 0.2em;
     background-color: #748bd1;
     margin-bottom:0.5em;
+}
+
+.side-buttons-box{
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .storage-menu {
@@ -126,25 +136,26 @@ html{
     flex-direction: column;
     align-content: flex-start;
     justify-content: center;
+    margin-top: 0.5em;
 }
 
 .project-cell{
     display: flex;
-    word-wrap: break-word;
     justify-content: center;
 }
 
 .project-select{
+    display:flex;
     font-weight: normal;
+    word-wrap:break-word;
+    overflow-wrap: break-word;
+    word-break: break-all;
 }
 
 .project-select:hover{
     color: midnightblue;
     text-decoration: underline;
-}
-
-.project-cell-button{
-    border-radius: 2em;
+    cursor: pointer;
 }
 
 .dashboard{
@@ -156,44 +167,100 @@ html{
     border-right-width: 0em;
     border-color: black;
 
-    width: 78%;
+    width: 85%;
     min-height: auto;
-    min-width: 30em;
+    min-width: 8em;
 
     flex-grow: 1;
 }
-
-
 
 .dashboard-title{
     min-height: auto;
-    min-width: auto;
-    font-weight: bolder;
+    /*min-width: auto;*/
+    font-weight:bolder;
+    font-size: 2rem;
     text-align: center;
+
+    word-wrap:break-word;
+
+    margin:0em;
+    width: 60%;
+}
+
+#dashboardTop{
+    height: 4.5em;
+    flex-grow: 0;
+}
+
+.dashboard-top-left{
+    float:left;
+    width: 20%;
+    max-width: 8em;
+    height: auto;
+}
+
+.dashboard-top-right{
+    float:right;
+    width: 20%;
+    max-width: 8em;
+    height: auto;
+}
+
+.project-button{
+    border-radius: 2em;
+    min-width:4.5em;
+    width:auto;
+    height:auto;
 }
 
 .tasks-menu{
-    display: flex;
-    flex-direction: column;
     flex-grow: 1;
-
-    min-height: auto;
-    min-width: auto;
+    justify-content: center;
+    justify-items: center;
+    min-height: 80%;
+    min-width: 100%;
 }
 
-
 .tasks-menu-title{
-    min-height: auto;
-    min-width: auto;
+    height:8%;
+    width:99.5%;
     font-weight: bold;
     text-align: center;
+
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: black;
+    border-radius: 0.5em;
+}
+
+.tasks-menu-button{
+    border-radius: 2em;
+    width:8em;
+    height:1.5em;
+    margin:0.5em;
+}
+
+.tasks-bench{
+    min-height:auto;
+    flex-grow: 1;
+
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: black;
+    border-radius: 0.5em;
 }
 
 .tasks-table{
-
+    display: flex;
+    flex-direction:column;
+    flex-grow: 2;
 }
 
 .task-cell{
+    border-style: dotted;
+    border-width: 0.2em;
+    border-color: yellow;
+    border-radius: 2em;
 
 }
 

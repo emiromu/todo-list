@@ -36,8 +36,8 @@ export function createEngine() {
     }
 
     const addProject = (name) => {
-        if ((typeof name !== 'string' || !(name instanceof String)) && (name.length<1 || name.length>30)){
-            alert('Project name not valid (must be 1 to 30 characters)');
+        if ((typeof name !== 'string' || !(name instanceof String)) && (name.length<1 || name.length>22)){
+            alert('Project name not valid (must be 1 to 22 characters)');
             return;
         };
 
@@ -78,8 +78,8 @@ export function createEngine() {
     }
 
     const renameProject = (name, newName) => {
-        if ((typeof newName !== 'string' || !(newName instanceof String)) && (newName.length<1 || newName.length>30)){
-            alert('Project name not valid (must be 1 to 30 characters)');
+        if ((typeof newName !== 'string' || !(newName instanceof String)) && (newName.length<1 || newName.length>22)){
+            alert('Project name not valid (must be 1 to 22 characters)');
             return;
         };
         for(let i=0; i<projectList.length; i++){

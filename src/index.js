@@ -64,8 +64,13 @@ function componentStorageMenu(){
     storageMenuTitle.classList.add('side-menu-title');
     storageMenuTitle.innerHTML='Local Storage';
 
+    const storageMenuButtons = document.createElement('div');
+    storageMenuButtons.setAttribute('id','storageMenuButtons');
+    storageMenuButtons.classList.add('side-buttons-box');
+
     const saveBtn = document.createElement('button');
     saveBtn.setAttribute('id','saveBtn');
+    saveBtn.classList.add('sidebar-button');
     saveBtn.innerHTML='Save';
     saveBtn.addEventListener('click',function(e){
         if(confirm(`        Save to local storage?
@@ -76,6 +81,7 @@ function componentStorageMenu(){
 
     const loadBtn = document.createElement('button');
     loadBtn.setAttribute('id','loadBtn');
+    loadBtn.classList.add('sidebar-button');
     loadBtn.innerHTML='Load';
     loadBtn.addEventListener('click',function(e){
         if(confirm(`        Load local storage?
@@ -84,9 +90,11 @@ function componentStorageMenu(){
         };
     });
 
+    
     storageMenu.appendChild(storageMenuTitle);
-    storageMenu.appendChild(saveBtn);
-    storageMenu.appendChild(loadBtn);
+    storageMenuButtons.appendChild(saveBtn);
+    storageMenuButtons.appendChild(loadBtn);
+    storageMenu.appendChild(storageMenuButtons);
 
     return storageMenu;
 };
@@ -105,56 +113,7 @@ function componentProjectCell(projectName){
         document.querySelector('#mainPannel').appendChild(componentDashboard(projectName));
     });
     
-    /**TODO ; NOTE : probably will replace these with interface in dashboard */
-    const editProject = document.createElement('button');
-    editProject.setAttribute('id',`edit${projectName}`);
-    editProject.classList.add('project-cell-button');
-    editProject.innerHTML=`Edit`;
-    editProject.addEventListener('click',function(e){
-        var newProjectName = window.prompt('Enter new name for the project','');
-        engine.renameProject(projectName,newProjectName);
-        if ((typeof newProjectName !== 'string' || !(newProjectName instanceof String)) && (newProjectName.length<1 || newProjectName.length>30)){
-            return;
-        };
-        //Refresh the Projects Menu
-        document.querySelector('#projectsMenu').remove();
-        document.querySelector('#sidebar').appendChild(componentProjectsMenu());
-        //Refresh the Dashboard
-        document.querySelector(`#dashboard`).remove();
-        document.querySelector('#mainPannel').appendChild(componentDashboard(newProjectName));
-        return;
-    });
-
-    const deleteProject = document.createElement('button');
-    deleteProject.setAttribute('id',`delete${projectName}`);
-    deleteProject.classList.add('project-cell-button');
-    deleteProject.innerHTML=`Delete`;
-    deleteProject.addEventListener('click',function(e){
-        if(confirm(`Delete project "${projectName}" ?`)){
-            engine.deleteProject(projectName);
-
-            //Refresh the Projects Menu
-            document.querySelector('#projectsMenu').remove();
-            document.querySelector('#sidebar').appendChild(componentProjectsMenu());
-
-            if(engine.getProjectList().length<1){
-                //Refresh the Dashboard (no projects left)
-                document.querySelector(`#dashboard`).remove();
-                document.querySelector('#mainPannel').appendChild(componentDashboardEmpty());
-            }
-            else{
-                //Refresh the Dashboard (use first project)
-                document.querySelector(`#dashboard`).remove();
-                document.querySelector('#mainPannel').appendChild(componentDashboard(engine.getProjectList()[0].getName()));
-            };
-            return;
-        };
-    });
-
-
     projectCell.appendChild(projectSelect);
-    projectCell.appendChild(editProject);
-    projectCell.appendChild(deleteProject);
 
     return projectCell;
 };
@@ -170,14 +129,19 @@ function componentProjectsMenu(){
     projectsMenuTitle.setAttribute('id','projectsMenuTitle');
     projectsMenuTitle.classList.add('side-menu-title');
     projectsMenuTitle.innerHTML='Projects';
+
+    const projectsMenuButtons = document.createElement('div');
+    projectsMenuButtons.setAttribute('id','projectsMenuButtons');
+    projectsMenuButtons.classList.add('side-buttons-box');
     
     const newProjectBtn = document.createElement('button');
     newProjectBtn.setAttribute('id','newProjectBtn');
+    newProjectBtn.classList.add('sidebar-button');
     newProjectBtn.innerHTML=`New Project`;
     newProjectBtn.addEventListener('click',function(e){
         let newProjectName=window.prompt('Enter new project name','');
         engine.addProject(newProjectName);
-        if ((typeof newProjectName !== 'string' || !(newProjectName instanceof String)) && (newProjectName.length<1 || newProjectName.length>30)){
+        if ((typeof newProjectName !== 'string' || !(newProjectName instanceof String)) && (newProjectName.length<1 || newProjectName.length>22)){
             return;
         };
         //Refresh the Projects Menu
@@ -190,7 +154,8 @@ function componentProjectsMenu(){
     });
 
     projectsMenu.appendChild(projectsMenuTitle);
-    projectsMenu.appendChild(newProjectBtn);
+    projectsMenuButtons.appendChild(newProjectBtn);
+    projectsMenu.appendChild(projectsMenuButtons);
 
     /*Projects table div containing Project cells*/
     const projectsTable = document.createElement('div');
@@ -237,7 +202,7 @@ function componentTasksMenu(projectName){
     /**Menu containing tasks of the active project */
     const tasksMenu = document.createElement('div');
     tasksMenu.setAttribute('id','tasksMenu');
-    tasksMenu.classList.add('tasks-menu');
+    tasksMenu.classList.add('container-vertical','tasks-menu');
 
     const tasksMenuTitle = document.createElement('div');
     tasksMenuTitle.setAttribute('id','tasksMenuTitle');
@@ -248,6 +213,7 @@ function componentTasksMenu(projectName){
 
     const newTaskBtn = document.createElement('button');
     newTaskBtn.setAttribute('id','newTaskBtn');
+    newTaskBtn.classList.add('tasks-menu-button');
     newTaskBtn.innerHTML=`New Task`;
     newTaskBtn.addEventListener('click',function(e){
         engine.getProject(projectName).addTask(window.prompt('Enter new task name',''),'','','','');
@@ -256,12 +222,17 @@ function componentTasksMenu(projectName){
         document.querySelector('#mainPannel').appendChild(componentDashboard(projectName));
     });
 
-    tasksMenu.appendChild(newTaskBtn);
+    const tasksBench = document.createElement('div');
+    tasksBench.setAttribute('id','tasksBench');
+    tasksBench.classList.add('container-vertical','tasks-bench');
 
     /*tasks table div containing tasks cells*/
     const tasksTable = document.createElement('div');
     tasksTable.setAttribute('id','tasksTable');
     tasksTable.classList.add('tasks-table');
+
+    tasksBench.appendChild(newTaskBtn);
+    tasksBench.appendChild(tasksTable);
 
     let taskSelection = [];
     for(let i=0; i<engine.getProject(projectName).getTaskList().length;i++){
@@ -269,7 +240,7 @@ function componentTasksMenu(projectName){
         taskSelection[i].innerHTML=`${engine.getProject(projectName).getTaskList()[i].getName()}`;
         tasksTable.appendChild(componentTaskCell(projectName,engine.getProject(projectName).getTaskList()[i].getName()));
     }
-    tasksMenu.appendChild(tasksTable);
+    tasksMenu.appendChild(tasksBench);
     return tasksMenu;
 };
 
@@ -308,12 +279,76 @@ function componentDashboard(activeSelection){
     dashboard.setAttribute("id", "dashboard");
     dashboard.classList.add('container-vertical','dashboard');
 
+    const dashboardTop = document.createElement('div');
+    dashboardTop.setAttribute('id','dashboardTop');
+    dashboardTop.classList.add('container-horizontal');
+
     const dashboardTitle = document.createElement('div');
     dashboardTitle.setAttribute("id", "dashboardTitle");
     dashboardTitle.classList.add('container-vertical','dashboard-title');
     dashboardTitle.innerHTML=`<br>${renderSelection}<br><br>`;
 
-    dashboard.appendChild(dashboardTitle);
+    const dashboardTopRight = document.createElement('div');
+    dashboardTopRight.setAttribute('id','dashboardTopRight');
+    dashboardTopRight.classList.add('container-vertical','dashboard-top-right');
+
+    const dashboardTopLeft = document.createElement('div');
+    dashboardTopLeft.setAttribute('id','dashboardTopLeft');
+    dashboardTopLeft.classList.add('container-vertical','dashboard-top-left');
+
+    const editProject = document.createElement('button');
+    editProject.setAttribute('id',`edit${renderSelection}`);
+    editProject.classList.add('project-button');
+    editProject.innerHTML=`Rename`;
+    editProject.addEventListener('click',function(e){
+        var newProjectName = window.prompt('Enter new name for the project','');
+        engine.renameProject(renderSelection,newProjectName);
+        if ((typeof newProjectName !== 'string' || !(newProjectName instanceof String)) && (newProjectName.length<1 || newProjectName.length>22)){
+            return;
+        };
+        //Refresh the Projects Menu
+        document.querySelector('#projectsMenu').remove();
+        document.querySelector('#sidebar').appendChild(componentProjectsMenu());
+        //Refresh the Dashboard
+        document.querySelector(`#dashboard`).remove();
+        document.querySelector('#mainPannel').appendChild(componentDashboard(newProjectName));
+        return;
+    });
+
+    const deleteProject = document.createElement('button');
+    deleteProject.setAttribute('id',`delete${renderSelection}`);
+    deleteProject.classList.add('project-button');
+    deleteProject.innerHTML=`Delete`;
+    deleteProject.addEventListener('click',function(e){
+        if(confirm(`Delete project "${renderSelection}" ?`)){
+            engine.deleteProject(renderSelection);
+
+            //Refresh the Projects Menu
+            document.querySelector('#projectsMenu').remove();
+            document.querySelector('#sidebar').appendChild(componentProjectsMenu());
+
+            if(engine.getProjectList().length<1){
+                //Refresh the Dashboard (no projects left)
+                document.querySelector(`#dashboard`).remove();
+                document.querySelector('#mainPannel').appendChild(componentDashboardEmpty());
+            }
+            else{
+                //Refresh the Dashboard (use first project)
+                document.querySelector(`#dashboard`).remove();
+                document.querySelector('#mainPannel').appendChild(componentDashboard(engine.getProjectList()[0].getName()));
+            };
+            return;
+        };
+    });
+
+    dashboardTop.appendChild(dashboardTopLeft);
+    dashboardTop.appendChild(dashboardTitle);
+    dashboardTopLeft.appendChild(editProject);
+    dashboardTopRight.appendChild(deleteProject);
+    dashboardTop.appendChild(dashboardTopRight);
+    
+
+    dashboard.appendChild(dashboardTop);
     dashboard.appendChild(componentTasksMenu(renderSelection));
     return dashboard;
 };
