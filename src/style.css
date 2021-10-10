@@ -259,7 +259,7 @@ html{
 .task-cell{
     border-style: dotted;
     border-width: 0.2em;
-    border-color: yellow;
+    border-color: black;
     border-radius: 2em;
 
 }
